@@ -55,10 +55,6 @@ var svg_text = svg.selectAll("text")
     .attr("dy",10)
     .text(function(d){return d.name;});
 
-console.log("转换后的nodes_with_index links_with_index数据:");
-console.log(nodes_with_index);
-console.log(links_with_index);
-
 function draw(){
     svg_nodes_with_index
         .attr("cx",function(d){console.log(d);return d.x;})
