@@ -1,7 +1,6 @@
 /**
  * Created by prs on 2017/6/10.
  */
-const SIZE = 8;
 var nodes = ["A","B","C","D","E","F","G","H"];
 var links = [
     {"source": "A", "target": "B"},
