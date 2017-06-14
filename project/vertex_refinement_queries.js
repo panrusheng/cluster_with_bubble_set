@@ -47,23 +47,6 @@ function get_H_from_h(H,h0,danger,k){
     }
 }
 
-
-//nodes, links are defined in net_data.js
-const SIZE = nodes.length;
-var graph = new Array(SIZE);
-for(var i = 0; i < graph.length; i++){// initialize the 2D graph
-    graph[i] = new Array(SIZE);
-    for(var j = 0; j < graph[i].length; j++){
-        graph[i][j] = 0;
-    }
-}
-for (var i in links) {// build the graph
-    var a,b;
-    a = nodes.indexOf(links[i].source);
-    b = nodes.indexOf(links[i].target);
-    graph[a][b] = 1;
-    graph[b][a] = 1;
-}
 //get h1, h2, h3
 var h1 = new Array(SIZE);//the degree of each node
 var h2 = new Array(SIZE);//the multiset of each neighbour's degree
@@ -99,7 +82,7 @@ for(var i = 0; i < h3.length; i++){
     }
 }
 
-var k1 = 5, k2 = 5 ,k3 = 5;
+var k1 = 2, k2 = 2 ,k3 = 2;
 var danger1 = new Set();
 var danger2 = new Set();
 var danger3 = new Set();
@@ -109,6 +92,7 @@ var H3 = new Array();
 get_H_from_h(H1,h1,danger1,k1);
 get_H_from_h(H2,h2,danger2,k2);
 get_H_from_h(H3,h3,danger3,k3);
+
 document.write("<br>k1 = ",k1,"<br>");
 for(var item of danger1){
     document.write(nodes[item]);
