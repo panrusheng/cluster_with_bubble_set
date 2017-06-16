@@ -1,7 +1,6 @@
-# 6.7 - 6.14
-
-## 问题节点的分析
-
-- degree analysis base on function H(i)
-- central nodes group analysis
-- feature structure analysis
+## 6.7 - 6.14
+- vertex refinement queries(h1,h2,h3)
+## 6.14 - 6.21
+- hub fingerprint queries(f1)
+- shortest path
+- bubble set

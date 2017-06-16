@@ -3,14 +3,14 @@
  */
 var nodes_with_index = d3.range(nodes.length).map(function(i) {
     return {
-        index: nodes[i]
-    };
+       index: nodes[i]
+};
 });
 var links_with_index = d3.range(links.length).map(function(i) {
     return {
         source: nodes.indexOf(links[i].source),
         target: nodes.indexOf(links[i].target)
-    };
+};
 });
 var width = 800;
 var height = 600;

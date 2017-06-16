@@ -28,8 +28,7 @@ function get_H_from_h(H,h0,danger,k){
     }//copy h0 to h, make h0 avoid being modified
     for(var i = 0 ;i < h.length;i++){
         if(h[i]===0) continue;
-        var equiv = new Array();
-        equiv.push(i);
+        var equiv = [i];
         var tmp = h[i].toString();
         for(var j = i+1 ;j < h.length;j++) {
             if(h[j]===0) continue;
@@ -46,7 +45,6 @@ function get_H_from_h(H,h0,danger,k){
         H.push(equiv);
     }
 }
-
 //get h1, h2, h3
 var h1 = new Array(SIZE);//the degree of each node
 var h2 = new Array(SIZE);//the multiset of each neighbour's degree
