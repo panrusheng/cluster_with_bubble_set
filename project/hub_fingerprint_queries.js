@@ -30,8 +30,8 @@ for(var i = 0; i < path.length;i++){
 function f(i,hub,node){//fingerprint with hub
     return (path[hub][node]>i) ? 0 : path[hub][node];
 }
-var hub = [1,13,35,56,70];
-//var hub = [1,3,5,7];
+// var hub = [1,13,35,56,70];
+var hub = [1,3,5,7];
 var finger_print = new Array(SIZE);
 for(var i = 0; i < SIZE; i++){
     var is_hub = 0;
@@ -53,6 +53,7 @@ for(var i = 0; i < SIZE; i++){
 // }
 var k = 10;
 var d_F = new Set();
+var finger_table = new Array();
 var fp = new Array();
 for(var i = 0; i < SIZE;i++){
     fp.push(finger_print[i]);
@@ -68,6 +69,7 @@ for(var i = 0 ;i < SIZE;i++){
             fp[j] = 0;
         }
     }
+    finger_table.push([finger_print[i],equiv.length]);
     if(equiv.length < k){
         for(var l = 0;l<equiv.length;l++){
             d_F.add(equiv[l]);

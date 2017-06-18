@@ -3,35 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>secret</title>
-    <script src = net_data.js></script>
+    <script src = test_data.js></script>
     <script src = graph.js></script>
     <script src = d3.js></script>
     <script src = bubblesets.js></script>
 </head>
 <body>
 <script src = force.js></script>
-<script src = vertex_refinement_queries.js></script>
+<!--<script src = vertex_refinement_queries.js></script>-->
 <script src = hub_fingerprint_queries.js></script>
 <!--<script src = subgraph_query.js></script>-->
-<script src = main.js></script>
-<script>
-var pad = 5;
-var bubbles = new BubbleSet();
-// bubbles can be reused for subsequent runs or different sets of rectangles
-var list = bubbles.createOutline(
-  BubbleSet.addPadding(rectangles, pad),
-  BubbleSet.addPadding(otherRectangles, pad),
-  null /* lines */
-);
-// rectangles needs to be a list of objects of the form { x: 0, y: 0, width: 0, height: 0 }
-// lines needs to be a list of objects of the form { x1: 0, x2: 0, y1: 0, y2: 0 }
-// lines can be null to infer lines between rectangles automatically
-var outline = new PointPath(list).transform([
-  new ShapeSimplifier(0.0),
-  new BSplineShapeGenerator(),
-  new ShapeSimplifier(0.0),
-]);
-// outline is a path that can be used for the attribute d of a SVG path element
-</script>
+<!--<script src = main.js></script>-->
+<!--<script>-->
+<!--var pad = 5;-->
+<!--var bubbles = new BubbleSet();-->
+<!--// bubbles can be reused for subsequent runs or different sets of rectangles-->
+<!--var list = bubbles.createOutline(-->
+  <!--BubbleSet.addPadding(rectangles, pad),-->
+  <!--BubbleSet.addPadding(otherRectangles, pad),-->
+  <!--null /* lines */-->
+<!--);-->
+<!--// rectangles needs to be a list of objects of the form { x: 0, y: 0, width: 0, height: 0 }-->
+<!--// lines needs to be a list of objects of the form { x1: 0, x2: 0, y1: 0, y2: 0 }-->
+<!--// lines can be null to infer lines between rectangles automatically-->
+<!--var outline = new PointPath(list).transform([-->
+  <!--new ShapeSimplifier(0.0),-->
+  <!--new BSplineShapeGenerator(),-->
+  <!--new ShapeSimplifier(0.0),-->
+<!--]);-->
+<!--// outline is a path that can be used for the attribute d of a SVG path element-->
+<!--</script>-->
 </body>
 </html>
