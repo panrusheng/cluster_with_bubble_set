@@ -75,7 +75,8 @@ for(var i = 0 ;i < SIZE;i++){
     }
 }
 
-document.write("<br>k = ",k,"<br> Danger nodes: ");
+document.write("<br>Hub Fingerprint Query : <br>");
+document.write("<br>k = ",k,"<br> ");
 for(var item of d_F){
     document.write(nodes[item]);
     document.write(", ");

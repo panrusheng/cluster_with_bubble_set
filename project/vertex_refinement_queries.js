@@ -45,6 +45,41 @@ function get_H_from_h(H,h0,danger,k){
         H.push(equiv);
     }
 }
+
+function get_H_from_h3(H,h0,danger,k){
+    var h = new Array();
+    for(var i = 0; i < h0.length;i++){
+        h[i] = h0[i];
+    }//copy h0 to h, make h0 avoid being modified
+    for(var i = 0 ; i < h.length;i++){
+        if(h[i]===0) continue;
+        var is_same = true;
+        var equiv = [i];
+        for(var j = i+1 ; j < h.length;j++) {
+            if(h[j]===0) continue;
+            if(h[j].length !== h[i].length){
+                is_same = false;
+            }
+            else {
+                for(var l = 0; l < h[i].length; l++) {
+                    if (h[i][l].toString() !== h[j][l].toString()) {
+                        is_same = false;
+                    }
+                }
+            }
+            if(is_same){
+                equiv.push(j);
+                h[j] = 0;
+            }
+        }
+        if(equiv.length<k){
+            for(var l = 0;l<equiv.length;l++){
+                danger.add(equiv[l]);
+            }
+        }
+        H.push(equiv);
+    }
+}
 //get h1, h2, h3
 var h1 = new Array(SIZE);//the degree of each node
 var h2 = new Array(SIZE);//the multiset of each neighbour's degree
@@ -66,21 +101,15 @@ for(var i = 0; i < h2.length; i++){
 }
 for(var i = 0; i < h3.length; i++){
     h3[i] = new Array();
-    var tmp = new Array();
     for(var j = 0; j < graph.length; j++){
         if(graph[i][j]!==0){
-            tmp.push(h2[j]);
+            h3[i].push(h2[j]);
         }
     }
-    tmp.sort(compare_2);
-    for(var j = 0; j < tmp.length; j++){
-        for(var k = 0; k < tmp[j].length; k++){
-            h3[i].push(tmp[j][k]);
-        }
-    }
+    h3[i].sort(compare_2);
 }
 
-var k1 = 2, k2 = 2 ,k3 = 2;
+var k1 = 5, k2 = 5 ,k3 = 5;
 var danger1 = new Set();
 var danger2 = new Set();
 var danger3 = new Set();
@@ -89,8 +118,9 @@ var H2 = new Array();
 var H3 = new Array();
 get_H_from_h(H1,h1,danger1,k1);
 get_H_from_h(H2,h2,danger2,k2);
-get_H_from_h(H3,h3,danger3,k3);
+get_H_from_h3(H3,h3,danger3,k3);
 
+document.write("<br>Vertex Refinement Query : <br>");
 document.write("<br>k1 = ",k1,"<br>");
 for(var item of danger1){
     document.write(nodes[item]);
@@ -109,18 +139,18 @@ for(var item of danger3){
     document.write(", ");
 }
 document.write("<br>");
-document.write("<br>h1:&emsp;h2:&emsp;h3:<br>");
-for(var i = 0;i<SIZE;i++){
-    document.write(h1[i]);
-    document.write("&emsp;");
-    document.write("{");
-    document.write(h2[i]);
-    document.write("}");
-    document.write("&emsp;");
-    document.write("{");
-    document.write(h3[i]);
-    document.write("}<br>");
-}
+// document.write("<br>h1:&emsp;h2:&emsp;h3:<br>");
+// for(var i = 0;i<SIZE;i++){
+//     document.write(h1[i]);
+//     document.write("&emsp;");
+//     document.write("{");
+//     document.write(h2[i]);
+//     document.write("}");
+//     document.write("&emsp;");
+//     document.write("{");
+//     document.write(h3[i]);
+//     document.write("}<br>");
+// }
 
 
 
