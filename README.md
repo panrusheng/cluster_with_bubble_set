@@ -32,6 +32,6 @@ var bubble = {
   size:2,
   pad:5
 };
-    drawBubble(bubble);
+drawBubble(bubble);
 ```
 
