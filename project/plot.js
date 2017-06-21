@@ -67,6 +67,7 @@ var svgText = svg.selectAll("text")
     .attr("dx",2)
     .attr("dy",-2)
     .attr("font-size",9)
+    .attr("text-anchor","middle")
     .text(function(_,i){return nodes[i];});
 
 function draw(){
