@@ -10,8 +10,8 @@ setTimeout(function(){
         hub:[2,7,14,23,31,46,50,62,73]//hub nodes group
     });
     query2 = vertex_refinement_queries({
-        k1:10,
-        k2:10,
+        k1:3,
+        k2:2,
         k3:2
     });
     classes.push({tag:1,data:Array.from(query1.nodeSet)});
